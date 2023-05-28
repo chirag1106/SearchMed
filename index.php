@@ -3,6 +3,11 @@ session_start();
 if (!isset($_SESSION['userIP'])) {
     header('location:./loader.php');
 }
+
+echo '<pre>';
+print_r($_COOKIE);
+die();
+echo '</pre>';
 ?>
 
 <!DOCTYPE html>
@@ -14,11 +19,6 @@ if (!isset($_SESSION['userIP'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css?v=s<?php echo time() ?>">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <?php
-    // if(isset($_COOKIE)){
-    //     echo "<script>window.confirm('list found. want to add it!');</script>";
-    // }
-    ?>
     <title>Generic Medicine</title>
     <script src="./index.js" type="text/javascript"></script>
 
