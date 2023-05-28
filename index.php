@@ -3,6 +3,11 @@ session_start();
 if (!isset($_SESSION['userIP'])) {
     header('location:./loader.php');
 }
+
+echo '<pre>';
+print_r($_COOKIE);
+echo '</pre>';
+// die();
 ?>
 
 <!DOCTYPE html>
@@ -141,7 +146,6 @@ if (!isset($_SESSION['userIP'])) {
                                 <th>Sno.</th>
                                 <th>Non Generic name</th>
                                 <th>Generic name</th>
-                                <th>Quantity</th>
                             </tr>
                         </table>
                     </div>
@@ -149,7 +153,7 @@ if (!isset($_SESSION['userIP'])) {
             </div>
         </div>
     </div>
-    <div id="chat-bot">
+    <!-- <div id="chat-bot">
         <div id='support-nav'>
             <p>Support</p>
             <a id="support-min">
@@ -171,7 +175,7 @@ if (!isset($_SESSION['userIP'])) {
                 </button>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <script type='text/javascript'>
         const trans_bg = document.querySelector("#trans-bg");

@@ -45,9 +45,23 @@ function addCart( $medicine_id ) {
 	$output         = getRecord( $medicine_id );
 	$genericName    = str_replace( ' ', '', $output['Generic'] );
 	$NonGenericName = str_replace( ' ', '', $output['NonGeneric'] );
-	if ( ! isset( $_COOKIE[ $NonGenericName ] ) ) {
-		setcookie( $NonGenericName, $genericName, strtotime( '+30days' ), '/' );
+	// if ( ! isset( $_COOKIE[ $NonGenericName ] ) ) {
+	// 	setcookie( $NonGenericName, $genericName, strtotime( '+30days' ), '/' );
+	// }
+
+	// add ke leta hu generic, nongeneric to the array of array then on every time have to add into the array
+	$medicine_to_add = array(
+		'generic'    => $genericName,
+		'nongeneric' => $NonGenericName,
+	);
+
+	// Adding the list of medicine to the array to be displayed on the list page
+	$medicineList = array();
+	if ( isset( $_COOKIE['medicineList'] ) ) {
+		$medicineList = unserialize( $_COOKIE['medicineList'] );
 	}
+	$medicineList[] = $medicine_to_add;
+	setcookie( 'medicineList', serialize( $medicineList ), strtotime( '+30days' ), '/' );
 	return $output;
 }
 
