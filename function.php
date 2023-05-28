@@ -1,5 +1,4 @@
 <?php
-
 require_once './error.php';
 require_once './config.php';
 
@@ -57,12 +56,32 @@ function addCart( $medicine_id ) {
 
 	// Adding the list of medicine to the array to be displayed on the list page
 	$medicineList = array();
-	if ( isset( $_COOKIE['medicineList'] ) ) {
-		$medicineList = unserialize( $_COOKIE['medicineList'] );
+	if ( isset( $_SESSION['medicineList'] ) ) {
+		$medicineList = unserialize( $_SESSION['medicineList'] );
 	}
 	$medicineList[] = $medicine_to_add;
-	setcookie( 'medicineList', serialize( $medicineList ), strtotime( '+30days' ), '/' );
-	return $output;
+	// setting session for the medicine list
+	$_SESSION['medicineList'] = serialize( $medicineList );
+	// setcookie( 'medicineList', serialize( $medicineList ), strtotime( '+30days' ), '/' );
+	// return $output;
+
+	if ( isset( $_SESSION['medicineList'] ) ) :
+		foreach ( unserialize( $_SESSION['medicineList'] ) as $key => $value ) {
+			?>
+			<tr>
+				<td>
+					<?php echo $key + 1; ?>
+				<td>
+					<?php echo $value['generic']; ?>
+				</td>
+				<td>
+					<?php echo $value['nongeneric']; ?>
+				</td>
+			</tr>
+			<?php
+		}
+	endif;
+
 }
 
 function getRecord( $medicine_id ) {

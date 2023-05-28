@@ -1,19 +1,18 @@
 <?php
+
+require_once './error.php';
+
 session_start();
 if (!isset($_SESSION['userIP'])) {
     header('location:./loader.php');
 }
-
-echo '<pre>';
-print_r($_COOKIE);
-echo '</pre>';
-// die();
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,9 +21,11 @@ echo '</pre>';
     <title>Meds Gen</title>
     <script src="./index.js" type="text/javascript"></script>
 
+
 </head>
 
 <body>
+
     <div id="trans-bg"></div>
     <!-- navbar starts here-->
     <nav class="navbar">
@@ -61,11 +62,10 @@ echo '</pre>';
     <!-- main section starts here -->
     <div class="section">
         <div id="main" class="main-section">
-
             <div class="search-section">
                 <div class="welcome">
-                    <Span>Welcome to Meds Gen</Span>
-                    <!-- <span></Span> -->
+                    <Span>Welcome to </Span>
+                    <span>Generic Medicine</Span>
                     <span class="small-text">your one stop to search substitute for your medicine</span>
                 </div>
                 <div class="search">
@@ -130,9 +130,6 @@ echo '</pre>';
                 <div class='list-nav'>
                     <span>MEDICINE LIST</span>
                     <div class='share-down-btn'>
-                        <a href=''>
-                            <img id="share-img" src='./images/share.svg' alt='share now'>
-                        </a>
                         <a href='./download_list.php'>
                             <img id="down-img" src='./images/download.png' alt='download'>
                         </a>
@@ -148,34 +145,36 @@ echo '</pre>';
                             <th>Non Generic name</th>
                             <th>Generic name</th>
                         </tr>
+                        <div id="added_list_items"></div>
                     </table>
                 </div>
             </div>
         </div>
     </div>
     <!-- <div id="chat-bot">
-        <div id='support-nav'>
-            <p>Support</p>
-            <a id="support-min">
-                <img id="max" src="./images/maximize.png" alt="maximize">
-                <img id="min" src="./images/minimize.png" alt="minimize">
-            </a>
-        </div>
-        <div class="chat">
-            <div class="messages"></div>
-            <div class="input-msg">
-                <div class="input-msg-text">
-                    <input id="msg-here" type="text" placeholder="Type your message here" />
-                </div>
-                <button id="attach">
-                    <img src="./images/paperclip.png" alt="attachment">
-                </button>
-                <button id="send">
-                    <img src="./images/send.png" alt="send">
-                </button>
-            </div>
-        </div>
-    </div> -->
+		<div id='support-nav'>
+			<p>Support</p>
+			<a id="support-min">
+				<img id="max" src="./images/maximize.png" alt="maximize">
+				<img id="min" src="./images/minimize.png" alt="minimize">
+			</a>
+		</div>
+		<div class="chat">
+			<div class="messages"></div>
+			<div class="input-msg">
+				<div class="input-msg-text">
+					<input id="msg-here" type="text" placeholder="Type your message here" />
+				</div>
+				<button id="attach">
+					<img src="./images/paperclip.png" alt="attachment">
+				</button>
+				<button id="send">
+					<img src="./images/send.png" alt="send">
+				</button>
+			</div>
+		</div>
+	</div> -->
+    >>>>>>> 73f67860ce271f6a720eb1e45a623bd431dbbe50
 
     <script type='text/javascript'>
         const trans_bg = document.querySelector("#trans-bg");
@@ -185,19 +184,19 @@ echo '</pre>';
             document.cookie = "CookieBy=Cookies; max-age=" + 60 * 60 * 24 * 30;
             if (document.cookie) {
                 cookieBox.classList.add("hide");
-                trans_bg.style.display="none";
+                trans_bg.style.display = "none";
             } else {
                 alert("Cookie can't be set! Please unblock this site from the cookie setting of your browser.");
             }
         }
         let checkCookie = document.cookie.indexOf("CookieBy=Cookies");
-        if(checkCookie != -1){
+        if (checkCookie != -1) {
             cookieBox.classList.add("hide");
-            trans_bg.style.display="none";
+            trans_bg.style.display = "none";
+        } else {
+            cookieBox.classList.remove("hide");
+            trans_bg.style.display = "block";
         }
-        else{
-            cookieBox.classList.remove("hide");trans_bg.style.display="block";
-        } 
     </script>
 
 </body>
