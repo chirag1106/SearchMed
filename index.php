@@ -138,41 +138,41 @@ if ( ! isset( $_SESSION['userIP'] ) ) {
 					</div>
 					<div class='list-show'>
 						<table id="show-list-table">
-							<tr>
-								<th>Sno.</th>
-								<th>Non Generic name</th>
-								<th>Generic name</th>
-							</tr>
-							<div id="added_list_items"></div>
+							<?php
+
+							if ( isset( $_SESSION['medicineList'] ) ) :
+								?>
+								<tr>
+									<th>Sno.</th>
+									<th>Non Generic name</th>
+									<th>Generic name</th>
+								</tr>
+								<?php
+								foreach ( unserialize( $_SESSION['medicineList'] ) as $key => $value ) {
+									?>
+									<tr>
+										<td>
+											<?php echo $key + 1; ?>
+										<td>
+											<?php echo $value['generic']; ?>
+										</td>
+										<td>
+											<?php echo $value['nongeneric']; ?>
+										</td>
+										<td>
+											<?php echo '<button id="removeList-btn-' . $key+1 . '" type="button" data-fpid="' . $key . '" onclick="removeCart(this.id)">Remove</button>'; ?>
+										</td>
+									</tr>
+									<?php
+								}
+							endif;
+							?>
 						</table>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<!-- <div id="chat-bot">
-		<div id='support-nav'>
-			<p>Support</p>
-			<a id="support-min">
-				<img id="max" src="./images/maximize.png" alt="maximize">
-				<img id="min" src="./images/minimize.png" alt="minimize">
-			</a>
-		</div>
-		<div class="chat">
-			<div class="messages"></div>
-			<div class="input-msg">
-				<div class="input-msg-text">
-					<input id="msg-here" type="text" placeholder="Type your message here" />
-				</div>
-				<button id="attach">
-					<img src="./images/paperclip.png" alt="attachment">
-				</button>
-				<button id="send">
-					<img src="./images/send.png" alt="send">
-				</button>
-			</div>
-		</div>
-	</div> -->
 
 	<script type='text/javascript'>
 		const trans_bg = document.querySelector("#trans-bg");

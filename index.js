@@ -11,9 +11,6 @@ function addCart(click_id){
                 window.alert(data);
             }
             else{
-                // data = JSON.parse(data);
-                // sessionStorage.setItem(data.NonGeneric,data.Generic);
-
                 $('#show-list-table').html(data);
             }
         }
@@ -76,7 +73,7 @@ $(document).ready(function(){
         $("#min").css("display","none")
         $(".chat").hide(600);
     });
-    
+
     $("#max").click(function(e){
         e.preventDefault();
         $("#min").css("display","block");

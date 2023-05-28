@@ -44,30 +44,30 @@ function addCart( $medicine_id ) {
 	$output         = getRecord( $medicine_id );
 	$genericName    = str_replace( ' ', '', $output['Generic'] );
 	$NonGenericName = str_replace( ' ', '', $output['NonGeneric'] );
-	// if ( ! isset( $_COOKIE[ $NonGenericName ] ) ) {
-	// 	setcookie( $NonGenericName, $genericName, strtotime( '+30days' ), '/' );
-	// }
 
-	// add ke leta hu generic, nongeneric to the array of array then on every time have to add into the array
 	$medicine_to_add = array(
 		'generic'    => $genericName,
 		'nongeneric' => $NonGenericName,
 	);
 
-	// Adding the list of medicine to the array to be displayed on the list page
 	$medicineList = array();
 	if ( isset( $_SESSION['medicineList'] ) ) {
 		$medicineList = unserialize( $_SESSION['medicineList'] );
 	}
-	$medicineList[] = $medicine_to_add;
-	// setting session for the medicine list
+	$medicineList[]           = $medicine_to_add;
 	$_SESSION['medicineList'] = serialize( $medicineList );
-	// setcookie( 'medicineList', serialize( $medicineList ), strtotime( '+30days' ), '/' );
-	// return $output;
 
 	if ( isset( $_SESSION['medicineList'] ) ) :
+		?>
+		<tr>
+			<th>Sno.</th>
+			<th>Non Generic name</th>
+			<th>Generic name</th>
+		</tr>
+		<?php
 		foreach ( unserialize( $_SESSION['medicineList'] ) as $key => $value ) {
 			?>
+
 			<tr>
 				<td>
 					<?php echo $key + 1; ?>
@@ -76,6 +76,9 @@ function addCart( $medicine_id ) {
 				</td>
 				<td>
 					<?php echo $value['nongeneric']; ?>
+				</td>
+				<td>
+					<?php echo '<button id="removeList-btn-' . $key+1 . '" type="button" data-fpid="' . $key . '" onclick="removeCart(this.id)">Remove</button>'; ?>
 				</td>
 			</tr>
 			<?php
