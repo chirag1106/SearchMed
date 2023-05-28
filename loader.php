@@ -8,7 +8,7 @@ $_SESSION['userIP'] = $_SERVER['REMOTE_ADDR'];
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generic Medicine</title>
+    <title>MedsGen</title>
     <style>
         body {
             background-color: #a12929;
@@ -130,7 +130,7 @@ $_SESSION['userIP'] = $_SERVER['REMOTE_ADDR'];
 
 <body onload="setTimeout(function(){window.location.href = './index.php';}, 3000)">
     <div class="center">
-        Welcome to Generic Medicine
+        Welcome to MedsGen
         <span></span>
         <span></span>
         <span></span>

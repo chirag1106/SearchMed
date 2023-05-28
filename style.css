@@ -155,7 +155,7 @@ body
 .small-text
 {
 	font-size:25px;
-	margin-top:30px;
+	margin-top:10px;
 	margin-bottom:30px
 }
 
@@ -238,10 +238,27 @@ body
 
 .list-section
 {
-	margin-top: 100px;
+	max-height: 90%;
+	margin-top: 10px;
 	animation:ease-in 10s;
-	transform:translate(5%,-70%);
+	transform:translate(5%,0%);
 	width: 90%;
+}
+
+.action-btn{
+	text-align: center;
+}
+
+button[id^="removeList-btn-"]:hover{
+	background:#d61616;
+	color: #fff;
+}
+button[id^="removeList-btn-"]{
+	border:1px solid #d61616;
+	color:#d61616;
+	background: #fff;
+	height: 20px;
+	width: 100px;
 }
 
 .list-nav
@@ -291,7 +308,8 @@ body
 {
 	background-color:#fff;
 	border:1px solid #fff;
-	height:auto;
+	overflow-y: auto;
+	max-height:80vh;
 	padding:20px 10px;
 	box-shadow:.1px .1px 5px .4px #6b6969
 }

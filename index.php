@@ -18,7 +18,7 @@ if (!isset($_SESSION['userIP'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css?v=s<?php echo time() ?>">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <title>Meds Gen</title>
+    <title>MedsGen</title>
     <script src="./index.js" type="text/javascript"></script>
 
 
@@ -34,7 +34,7 @@ if (!isset($_SESSION['userIP'])) {
                 <a href="./loader.php"><img src="./images/logo.png" alt="logo here" width="50" height="40"></a>
             </div>
             <div class="nav-brand">
-                <a href="./index.php">Meds Gen</a>
+                <a href="./index.php">MedsGen</a>
             </div>
         </div>
         <div id="nav-right">
@@ -58,14 +58,11 @@ if (!isset($_SESSION['userIP'])) {
         </div>
     </div>
     <!-- end cookies consent -->
-
-    <!-- main section starts here -->
     <div class="section">
         <div id="main" class="main-section">
             <div class="search-section">
                 <div class="welcome">
-                    <Span>Welcome to </Span>
-                    <span>Generic Medicine</Span>
+                    <Span>Welcome to MedsGen</Span>
                     <span class="small-text">your one stop to search substitute for your medicine</span>
                 </div>
                 <div class="search">
@@ -140,41 +137,41 @@ if (!isset($_SESSION['userIP'])) {
                 </div>
                 <div class='list-show'>
                     <table id="show-list-table">
-                        <tr>
-                            <th>Sno.</th>
-                            <th>Non Generic name</th>
-                            <th>Generic name</th>
-                        </tr>
-                        <div id="added_list_items"></div>
+                        <?php
+
+                        if (isset($_SESSION['medicineList'])) :
+                        ?>
+                            <tr>
+                                <th>Sno.</th>
+                                <th>Non Generic name</th>
+                                <th>Generic name</th>
+                                <th>Action</th>
+                            </tr>
+                            <?php
+                            foreach (unserialize($_SESSION['medicineList']) as $key => $value) {
+                            ?>
+                                <tr>
+                                    <td>
+                                        <?php echo $key + 1; ?>
+                                    <td>
+                                        <?php echo $value['generic']; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $value['nongeneric']; ?>
+                                    </td>
+                                    <td class="action-btn">
+                                        <?php echo '<button id="removeList-btn-' . $key + 1 . '" type="button" data-fpid="' . $key . '" onclick="removeCart(this.id)">Remove</button>'; ?>
+                                    </td>
+                                </tr>
+                        <?php
+                            }
+                        endif;
+                        ?>
                     </table>
                 </div>
             </div>
         </div>
     </div>
-    <!-- <div id="chat-bot">
-		<div id='support-nav'>
-			<p>Support</p>
-			<a id="support-min">
-				<img id="max" src="./images/maximize.png" alt="maximize">
-				<img id="min" src="./images/minimize.png" alt="minimize">
-			</a>
-		</div>
-		<div class="chat">
-			<div class="messages"></div>
-			<div class="input-msg">
-				<div class="input-msg-text">
-					<input id="msg-here" type="text" placeholder="Type your message here" />
-				</div>
-				<button id="attach">
-					<img src="./images/paperclip.png" alt="attachment">
-				</button>
-				<button id="send">
-					<img src="./images/send.png" alt="send">
-				</button>
-			</div>
-		</div>
-	</div> -->
-    >>>>>>> 73f67860ce271f6a720eb1e45a623bd431dbbe50
 
     <script type='text/javascript'>
         const trans_bg = document.querySelector("#trans-bg");
