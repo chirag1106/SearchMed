@@ -19,7 +19,7 @@ echo '</pre>';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css?v=s<?php echo time() ?>">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <title>Generic Medicine</title>
+    <title>Meds Gen</title>
     <script src="./index.js" type="text/javascript"></script>
 
 </head>
@@ -33,7 +33,7 @@ echo '</pre>';
                 <a href="./loader.php"><img src="./images/logo.png" alt="logo here" width="50" height="40"></a>
             </div>
             <div class="nav-brand">
-                <a href="./index.php">Generic Medicine</a>
+                <a href="./index.php">Meds Gen</a>
             </div>
         </div>
         <div id="nav-right">
@@ -64,8 +64,8 @@ echo '</pre>';
 
             <div class="search-section">
                 <div class="welcome">
-                    <Span>Welcome to </Span>
-                    <span>Generic Medicine</Span>
+                    <Span>Welcome to Meds Gen</Span>
+                    <!-- <span></Span> -->
                     <span class="small-text">your one stop to search substitute for your medicine</span>
                 </div>
                 <div class="search">
@@ -124,31 +124,31 @@ echo '</pre>';
                     </form>
                 </div>
             </div>
-            <div class="list">
-                <div class='list-section'>
-                    <div class='list-nav'>
-                        <span>MEDICINE LIST</span>
-                        <div class='share-down-btn'>
-                            <a href=''>
-                                <img id="share-img" src='./images/share.svg' alt='share now'>
-                            </a>
-                            <a href='./download_list.php'>
-                                <img id="down-img" src='./images/download.png' alt='download'>
-                            </a>
-                            <a class="hide">
-                                <img src="./images/hide.png" alt="hide">
-                            </a>
-                        </div>
+        </div>
+        <div class="list">
+            <div class='list-section'>
+                <div class='list-nav'>
+                    <span>MEDICINE LIST</span>
+                    <div class='share-down-btn'>
+                        <a href=''>
+                            <img id="share-img" src='./images/share.svg' alt='share now'>
+                        </a>
+                        <a href='./download_list.php'>
+                            <img id="down-img" src='./images/download.png' alt='download'>
+                        </a>
+                        <a class="hide">
+                            <img src="./images/hide.png" alt="hide">
+                        </a>
                     </div>
-                    <div class='list-show'>
-                        <table id="show-list-table">
-                            <tr>
-                                <th>Sno.</th>
-                                <th>Non Generic name</th>
-                                <th>Generic name</th>
-                            </tr>
-                        </table>
-                    </div>
+                </div>
+                <div class='list-show'>
+                    <table id="show-list-table">
+                        <tr>
+                            <th>Sno.</th>
+                            <th>Non Generic name</th>
+                            <th>Generic name</th>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>

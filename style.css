@@ -230,15 +230,18 @@ body
 	display:none;
 	position:absolute;
 	top:0;
-	width:90%;
-	transform:translate(5%,-70%);
+	height: 100vh;
+	width:100%;
+	background: #ffffffde;
 	margin:0
 }
 
 .list-section
 {
-	margin-top:5vh;
-	animation:ease-in 10s
+	margin-top: 100px;
+	animation:ease-in 10s;
+	transform:translate(5%,-70%);
+	width: 90%;
 }
 
 .list-nav
