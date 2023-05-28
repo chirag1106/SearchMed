@@ -6,15 +6,6 @@ session_start();
 if ( ! isset( $_SESSION['userIP'] ) ) {
 	header( 'location:./loader.php' );
 }
-
-if ( isset( $_SESSION['medicineList'] ) ) {
-	unset( $_SESSION['medicineList'] );
-}
-
-// echo '<pre>';
-// print_r(unserialize($_SESSION['medicineList']));
-// echo '</pre>';
-// die();
 ?>
 
 <!DOCTYPE html>
@@ -137,9 +128,6 @@ if ( isset( $_SESSION['medicineList'] ) ) {
 					<div class='list-nav'>
 						<span>MEDICINE LIST</span>
 						<div class='share-down-btn'>
-							<a href=''>
-								<img id="share-img" src='./images/share.svg' alt='share now'>
-							</a>
 							<a href='./download_list.php'>
 								<img id="down-img" src='./images/download.png' alt='download'>
 							</a>
