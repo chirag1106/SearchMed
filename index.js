@@ -11,8 +11,10 @@ function addCart(click_id){
                 window.alert(data);
             }
             else{
-                data = JSON.parse(data);
-                sessionStorage.setItem(data.NonGeneric,data.Generic);
+                // data = JSON.parse(data);
+                // sessionStorage.setItem(data.NonGeneric,data.Generic);
+
+                $('#show-list-table').html(data);
             }
         }
     }); 

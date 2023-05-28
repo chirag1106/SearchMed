@@ -1,12 +1,15 @@
 <?php
+
+require_once './error.php';
+
 session_start();
 if (!isset($_SESSION['userIP'])) {
     header('location:./loader.php');
 }
 
-echo '<pre>';
-print_r($_COOKIE);
-echo '</pre>';
+// echo '<pre>';
+// print_r(unserialize($_SESSION['medicineList']));
+// echo '</pre>';
 // die();
 ?>
 
@@ -147,6 +150,7 @@ echo '</pre>';
                                 <th>Non Generic name</th>
                                 <th>Generic name</th>
                             </tr>
+                            <div id="added_list_items"></div>
                         </table>
                     </div>
                 </div>
