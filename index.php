@@ -3,11 +3,6 @@ session_start();
 if (!isset($_SESSION['userIP'])) {
     header('location:./loader.php');
 }
-
-echo '<pre>';
-print_r($_COOKIE);
-die();
-echo '</pre>';
 ?>
 
 <!DOCTYPE html>
